@@ -5,6 +5,7 @@
 		$data = array(
 			'name_type_food' => $nameType
 		);
+		print_r($data);
 	 	db_insert('type_food', $data);
-		header('location: '. $dataLocation .'admin/admin.php'); 
+		//header('location: '. $dataLocation .'admin/admin.php'); 
 ?>
