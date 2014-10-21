@@ -24,7 +24,7 @@
 				}
 		}
 		$sqlstr = "insert into ". $table."(". join(',',array_keys($data)). ") values (". join (',', $data). ")";
-#	print_r($sqlstr ."<br>");
+// 		print_r($sqlstr ."<br>");
 		mysql_query($sqlstr) or die(mysql_error());
 
 	}

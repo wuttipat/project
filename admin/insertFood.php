@@ -31,6 +31,46 @@ $componentJson = json_encode($component);
 	var component = <?=$componentJson?>;
     var diseaseList = <?=$disease?>;
     var  countComponent =0 ;
+	var countDisease = 0;
+	var dataComponent = '';
+	var dataDisease = '';
+	$().ready(function(){
+		$('#foodData').submit(function(){
+			
+			if($('#nameFood').val().length < 1){
+				 alert('กรุณราใส่ขื่ออาหาร');
+				 $('#nameFood').focus();
+				 return false;
+			}
+			
+			for(var i = 0; i <= countComponent-1; i++){
+				var value = $('#selectComponent' +i).val();
+				var amount = $('#amountComponent' +i).val();
+				if(value == undefined) continue;
+				if(amount.length < 1) amount = 1;
+				dataComponent += value + '-' + amount + ',';
+			}
+			
+			for(var i = 0 ; i<= countDisease -1; i++){
+				var value = $('#listDisease' +i).val();
+				if(value == undefined) continue;
+				dataDisease += value + ',';
+			}
+			if(dataComponent.length < 1){
+				alert('กรุณาใส่ข้อมููลสว่นประกอย');
+				return false;
+			}else dataComponent = dataComponent.substring(0, dataComponent.length -1);
+			
+			if(dataDisease.length < 1){
+				alert('กรุณาใส่ข้อมูลโรคที่สามารคบำบัด');
+				return false;
+			}else dataDisease = dataDisease.substring(0, dataDisease.length -1);
+			
+			$('#dataListComponent').val(dataComponent);
+			$('#dataListDisease').val(dataDisease);	
+		});
+	});
+	
     function generateDisease(){
         var tagDisesae = '';
         for(var i  in diseaseList){
@@ -40,7 +80,7 @@ $componentJson = json_encode($component);
         }
         return tagDisesae;
     }
-    var countDisease = 0;
+  
     function addRowDisease(){
         var rowDisease = $('#listDisease');
         var select = '<select id="listDisease' + countDisease +'" >' + generateDisease() + '</select>';
@@ -53,18 +93,10 @@ $componentJson = json_encode($component);
         countDisease ++;
     }
 
-function deleteDiseaseClick(id){
-        $('#rowDisease'+id).html('');
-}
+	function deleteDiseaseClick(id){
+			$('#rowDisease'+id).html('');
+	}
 
-    function addComposition(id, count){
-        var tag = '<tr id="row'+count+'">';
-        tag += '<td><input type="text" size="15"  id="name' + count + '"> </td>';
-        tag += '<td><input type="text" size="15" id="amount' + count + '"  > </td>';
-        tag += '<td><input type="text" size="15" id="capacity' + count + '"  > </td>';
-        tag += '<td><a href="javascript:deleteClick(' +count+')"><img src="img/delete.png" class="delete" ></a></td>';
-        $(id).append(tag);
-    }
     function deleteClick(id){
             $('#row'+id).html('');
     }
@@ -120,7 +152,7 @@ function deleteDiseaseClick(id){
         </tr>
     	<tr>
         		<td>ชื่ออาหาร</td>
-                <td><input  type="text" name="nameFood"  /></td>
+                <td><input  type="text" id="nameFood" name="nameFood"  /></td>
         <tr>
         <tr>
         	<td>ประเภทอาหาร</td>
@@ -159,7 +191,8 @@ function deleteDiseaseClick(id){
          </tr>
         </tr>
         <tr>
-            <td colspan="2"><input type="button" id="addData" value="บันทึก" /></td>
+            <td colspan="2"><input type="submit" id="addData" value="บันทึก" /></td>
+            <input type="hidden" id="dataListComponent" name="dataListComponent" />
             <input  type="hidden" id="dataListDisease" name="dataListDisease" />
         </tr>
     </table>
