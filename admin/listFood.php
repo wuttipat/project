@@ -25,7 +25,7 @@
     <? foreach($data as $key => $value):?>
     	<tr>
         	<td><?=$value['name_food']?> </td>
-            <td><img src="./img/edit.png"></td>
+            <td><a href="javascript:getAjax('./updateFood.php?id=<?=$value['id_food']?>')"><img src="./img/edit.png"></a></td>
             <td><img src="./img/delete.png"></td>
         </tr>
     <? endforeach?>
