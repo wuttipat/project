@@ -34,10 +34,6 @@ img {
 	var jsonMapper = <?=$jsonMapper?>;
 	var count = 0;
 	$().ready(function(){
-			
-	});
-	
-	$(window).load(function(e) {
 		 var countLoop = 0;
 		 for(var i = 0 ; i <= jsonMapper.length -1 ; i ++){
 			  var data = jsonMapper[i];
@@ -46,7 +42,34 @@ img {
 				countLoop++;
 			}
 			count = countLoop;
+
+
+			$('#submitDisease').submit(function(){
+		        var dataSymptom = '';
+		        if(checkSubmit() == false) return false ;
+		        if($('#txtNameDisease').val.length > 0){
+		            for(var i = 0 ; i <= count-1 ; i++){
+			            var value = $('#selectSymptom' +i).val();
+			            if(value == undefined) continue;
+			            dataSymptom += value + ',';
+		            }
+		            if(dataSymptom < 1){
+			            alert('กรุณาใส่ข้อมูลอาการผิดปกติ');
+			            return false;
+		            }else dataSymptom = dataSymptom.substring(0, dataSymptom.length -1);
+		            $('#dataSymptom').val(dataSymptom);
+		        }else{
+		            return false;
+		        }
+            });
 	});
+
+    function checkSubmit(){
+		if($('#txtNameDisease').val().length < 1){
+			alert('กรูณาใส่ชื่อโรค');
+			return false;
+		}
+	}
 	
 	function generateSelectTypeWrong(){
 			var tag = '<select id="selectTypeWrong' + count +  '" index="'+count+'">';
@@ -99,22 +122,6 @@ img {
 							<td><a href="javascript:deleteRow('+ count+')"><img  src="./img/delete.png" /></a></td></tr>';
 		return tag;
 	}
-
-	$('#submitDisease').submit(function(){
-		var dataSymptom = '';
-		if(checkSubmit() == false)return false;
-		for(var i = 0 ; i <= count-1 ; i++){
-			var value = $('#selectSymptom' +i).val();
-			if(value == undefined) continue;
-			dataSymptom += value + ',';
-		}
-		if(dataSymptom < 1){
-			alert('กรุณาใส่ข้อมูลอาการผิดปกติ');
-			return false;
-		}else dataSymptom = dataSymptom.substring(0, dataSymptom.length -1);
-		$('#dataSymptom').val(dataSymptom);
-	});
-});
 </script>
 <form id="submitDisease" action="./manageData/updateDisease.php" method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
@@ -123,7 +130,7 @@ img {
 		</tr>
 		<tr>
 			<td>ชื่อโรค</td>
-			<td><input type="text" name="txtNameDisease"
+			<td><input type="text" id="txtNameDisease" name="txtNameDisease"
 				value="<?=$data['name_disease'] ?>" /></td>
 		</tr>
 		<tr>
@@ -133,6 +140,7 @@ img {
 		</tr>
 		<tr>
 			<td colspan="2">อาการ</td>
+			<input type="hidden" id="dataSymptom" name="dataSymptom" />
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -158,5 +166,6 @@ img {
 		<tr>
 			<td colspan="2"><input type="submit" value="แก้ไข"></td>
 		</tr>
+		
 	</table>
 </form>

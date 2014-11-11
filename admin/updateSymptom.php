@@ -7,7 +7,7 @@ $dataSymptom = $dataSymptom[0];
 <script>
     function editClick(){
         var value = $('#typeSymptom').val();
-        $.get('./manageData/updateSymptom.php', {'id' : <?=$_GET['id']?>, 'typeComponent' : value}, function(data){
+        $.get('./manageData/updateSymptom.php', {'id' : <?=$_GET['id']?>, 'typeSymptom' : value}, function(data){
 		    getAjax('./mainListSymptom.php');
 	    });
 	    $('#dialog').dialog('close');
