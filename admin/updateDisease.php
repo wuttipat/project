@@ -34,7 +34,7 @@ img {
 	var jsonMapper = <?=$jsonMapper?>;
 	var count = 0;
 	$().ready(function(){
-		 var countLoop = 0;
+			 var countLoop = 0;
 		 for(var i = 0 ; i <= jsonMapper.length -1 ; i ++){
 			  var data = jsonMapper[i];
 				addRow();		
@@ -42,7 +42,6 @@ img {
 				countLoop++;
 			}
 			count = countLoop;
-
 
 			$('#submitDisease').submit(function(){
 		        var dataSymptom = '';
