@@ -43,13 +43,9 @@
 		$column = substr($column,0, -1);
 		$sqlstr = "UPDATE ". $table . " SET " . $column . " ". $where;		
 		mysql_query($sqlstr) or die(mysql_error());
-		mysql_close();
 	}
 	
 	function db_delete($table, $where){
-		if(gettype($value) == "string"){
-			$data[$key] = "'".$value. "'";
-		}
 		require_once("dbconnect.php");
 		$sqlstr = "delete from ". $table. " " . $where;
 		mysql_query($sqlstr) or die(mysql_error());
