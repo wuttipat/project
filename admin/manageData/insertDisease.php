@@ -17,5 +17,6 @@
 				'id_symptom' => $value);
 			db_insert('map_disease', $data);
 		}
-		header('location: '. $dataLocation .'admin/admin.php');
+		print_r($autoIncrement);
+// 		header('location: '. $dataLocation .'admin/admin.php');
 ?>
