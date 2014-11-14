@@ -3,7 +3,6 @@ include('../database/database.php');
 $id = $_GET['id'];
 $dataFood = db_select('food', null, 'WHERE id_food = '. $id);
 $dataFood = $dataFood[0];
-print_r($dataFood);
 $mapComponent = db_select('map_component', null, 'WHERE id_food = '. $id);
 $mapFood = db_select ('map_food', null, 'WHERE id_food = '. $id);
 $typeFood = db_select('type_food');
@@ -50,6 +49,7 @@ $jsonMapFood = json_encode($mapFood);
              var data = mapComponent[i];
              addComponent();
              $('#selectComponent'+ componentLoop).val(data.id_component);
+             $('#amountComponent'+ componentLoop).val(data.amount);
              componentLoop++;
         }
 
@@ -173,11 +173,12 @@ $jsonMapFood = json_encode($mapFood);
 <form id="foodData" action="./manageData/updateFood.php" method="post">
   <table width="100%" border="1" cellpadding="5" cellspacing="0">
   		<tr>
-        	<th colspan="2">เพิ่มข้อมูลอาหาร</th>
+        	<th colspan="2">แก้ใขข้อมูลอาหาร</th>
         </tr>
     	<tr>
         		<td>ชื่ออาหาร</td>
-                <td><input  type="text" id="nameFood" name="nameFood" value="<?=  $dataFood['name_food']?>"  /></td>
+                <td><input  type="text" id="nameFood" name="nameFood" value="<?=  $dataFood['name_food']?>"  />
+                <input type="hidden" name="id" value="<?= $dataFood['id_food']?>" ></td>
         <tr>
         <tr>
         	<td>ประเภทอาหาร</td>
@@ -200,7 +201,7 @@ $jsonMapFood = json_encode($mapFood);
             <td colspan="2">วิธีทำ</td>
         </tr>
         <tr>
-            <td colspan="2"><textarea name="method" cols="40" rows="5" class="ckeditor" id="method"> </textarea  ></td>
+            <td colspan="2"><textarea name="method" cols="40" rows="5" class="ckeditor" id="method"> <?=$dataFood['method_food']?> </textarea  ></td>
         </tr>
         <tr>
             <td colspan="2"> โรคที่สามารถบำบัด</td>
