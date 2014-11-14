@@ -122,20 +122,21 @@ img {
 		return tag;
 	}
 </script>
-<form id="submitDisease" action="./manageData/updateDisease.php" method="post">
+<form id="submitDisease" action="./manageData/updateDisease.php"
+	method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
 		<tr>
 			<th colspan="2">แก้ใชข้อมูลอาหาร</th>
 		</tr>
 		<tr>
 			<td>ชื่อโรค</td>
-			<td><input type="text" id="txtNameDisease" name="txtNameDisease"
+			<td><input type="hidden" name="id" value=<?=$data['id_disease']?>> <input
+				type="text" id="txtNameDisease" name="txtNameDisease"
 				value="<?=$data['name_disease'] ?>" /></td>
 		</tr>
 		<tr>
 			<td>สาเหตุ</td>
-			<td><textarea name="cause" cols="40" rows="5" id="cause"
-					value="<?=$data['cause_disease'] ?>"></textarea></td>
+			<td><textarea name="cause" cols="40" rows="5" id="cause"><?=$data['cause_disease'] ?></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2">อาการ</td>
@@ -159,12 +160,11 @@ img {
 		
 		<tr>
 			<td>วิธีการป้องกัน</td>
-			<td><textarea name="prevention" cols="40" rows="5" id="cause"
-					value="<?=$data['prevention_disease'] ?>"></textarea></td>
+			<td><textarea name="prevention" cols="40" rows="5" id="cause"><?=$data['prevention_disease'] ?></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="แก้ไข"></td>
 		</tr>
-		
+
 	</table>
 </form>
