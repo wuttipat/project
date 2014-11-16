@@ -73,7 +73,7 @@ background:url(images/menu_bg.gif) no-repeat center;
 }
 
 ul.menu {
-list-style-type:none; display:block; width:420px; 
+list-style-type:none; display:block; width:500px; 
 margin: auto; padding:0px; background:none;}
 
 ul.menu li {
@@ -100,14 +100,11 @@ a.nav_selected:link, a.nav_selected:visited {
 display:block; float:left; padding:0px; margin:0;width: auto;margin:0px 14px 0px 14px;text-align:center;
 text-decoration:none; color: #62584d; background:url(images/menu_arrow.gif) no-repeat top center;}
 
-a.nav:hover {
-color: #62584d; text-decoration:none;background:url(images/menu_arrow.gif) no-repeat top center;}
 
 /*---------------middle_box-----------------*/
 .middle_box{
 width:654px;
-height:161px;
-background:url(images/center_box_bg.gif) no-repeat center;
+height:800px;
 margin:10px auto;
 }
 .middle_box_text_content{
