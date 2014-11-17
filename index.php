@@ -24,20 +24,23 @@
     
             <div id="menu_tab">                                     
                     <ul class="menu">                                                                               
-                         <li><a href="#" class="nav"> หน้าหลัก </a></li>
+                         <li><a href="javascript:getAjax('./fontPage/home.php')" class="nav"> หน้าหลัก </a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav">วินิจฉัยโรค </a></li>
+                         <li><a href="javascript:getAjax('./fontPage/analysis.php')" class="nav">วินิจฉัยโรค </a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav"> ข้อมูลโรค</a></li>
+                         <li><a href="javascript:getAjax('./fontPage/disease.php')" class="nav"> ข้อมูลโรค</a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav"> ข้อมูลอาหาร</a></li>
+                         <li><a href="javascript:getAjax('./fontPage/food.php')" class="nav"> ข้อมูลอาหาร</a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav"> ผู้จัดทำ </a></li>
+                         <li><a href="javascript:getAjax('./fontPage/contract.php')" class="nav"> ผู้จัดทำ </a></li>
 
                     </ul>
             </div> 
             
             <div class="middle_box">
+            	<div class="middle_content">
+            	<?php require_once('./fontPage/home.php')?>
+            	</div>
             </div>
 	<div id="footer">
       <a href="http://www.webpagedesign.com.au">Art for the web</a>
