@@ -14,15 +14,21 @@ table tr td{
 	text-align:left;
 	text-indent:30px;
 	border-width: 1px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 table tr td:nth-child(1) {
 	text-align: center;
 	text-indent:0px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 table tr th{
 	font-size: 20px;
+	padding-top:10px;
+	padding-bottom:10px;
 	border-style:solid;
 	border-width: 1px;
 }

@@ -14,7 +14,7 @@ $count = 1;
 	<? foreach($data as $key => $value): ?>
 		<tr>
 		<td><?=$count?> </td>
-		<td><?=$value['name_food']?></td>
+		<td><a  href="javascript:getAjax('./fontPage/detailFood.php?id=<?=$value['id_food']?>')" ><?=$value['name_food']?></a></td>
 	</tr>
 	<? $count++?>
 	<? endforeach ?>
