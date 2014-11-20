@@ -1,0 +1,10 @@
+@font-face {
+  src: url("../fonts/woff/boon-500.woff") format("woff");
+  font-family: "Boon-0.6";
+  font-style: normal;
+  font-weight: 500;
+}
+
+body{
+	 font-family: "Boon-0.6";
+}
