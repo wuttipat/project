@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="./css/detail.css">
+<link rel="stylesheet" type="text/css" href="./css/fontTheme.css">
 <?php
     require_once '../database/database.php';	
     $id = $_GET['id'];

@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="./css/listTheme.css">
+<link rel="stylesheet" type="text/css" href="./css/fontTheme.css">
 <?php
 require_once '../database/database.php';
 $data = db_select ( 'food' );
