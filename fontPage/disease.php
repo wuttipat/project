@@ -6,7 +6,7 @@
 ?>
 
 
-<table>
+<table id="tableList">
 	<tr>
 		<th>ลำดับ</th>
 		<th>ข้อมูลโรค</th>
