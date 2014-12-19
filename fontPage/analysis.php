@@ -1,4 +1,5 @@
 <?php
+require_once'./ClassAnalysis.php';
 require_once '../database/database.php';
 $dataTypeWrong = db_select ( 'type_wrong' );
 ?>
